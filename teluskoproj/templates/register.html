@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>
+            Registration
+        </title>
+    </head>
+    <body>
+        <form action="register" method="post">
+            {% csrf_token %}
+            <!-- the data we pass here need to be registered in the table, the postgre sql database creates tables, when we initally perfrom
+             the migrations, so we need to store the data in that table
+             the auth.user is the table present in the postgre sql inorder to store the user information, it has several fields to fill the data
+             the fields we have to fill: username, password, first_name, last_name, email-->
+
+            <input type ="text" name = "first_name" placeholder = "FirstName"><br>
+            <input type ="text" name = "last_name" placeholder = "LastName"><br>
+            <input type ="text" name = "user_name" placeholder = "UserName"><br>
+            <input type ="email" name = "email" placeholder = "Email"><br>
+            <input type ="password" name = "password1" placeholder = "Password"><br>
+            <input type ="password" name = "password2" placeholder = "Re-Enter Password"><br>
+            <input type = "submit" value="Register"><br>
+        </form>
+        <div>
+            {%for message in messages%}
+                <h3>{{message}}</h3>
+            {% endfor %}
+    </body>
+
+</html>
